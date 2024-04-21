@@ -1,13 +1,13 @@
 class Solution {
 public:
     string removeDuplicates(string s) {
-        int start = 0, end = 0;
-        while( start < s.length() && end < s.length() ){
-            s[end] = s[start];
-            if( end > 0 && s[end] == s[end-1])
-                end -=2;
-            end++;
-            start++;
+        int end = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (end > 0 && s[i] == s[end - 1]) {
+                end--;
+            } else {
+                s[end++] = s[i];
+            }
         }
         return s.substr(0, end);
     }
