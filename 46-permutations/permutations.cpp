@@ -1,19 +1,22 @@
 class Solution {
 public:
-    void perrmutation(vector<int>& nums, vector<vector<int>>& permutations, int start) {
-        if (start == nums.size()) {
-            permutations.push_back(nums);
-        } else {
-            for (int i = start; i < nums.size(); ++i) {
-                swap(nums[start], nums[i]);
-                perrmutation(nums, permutations, start + 1);
-                swap(nums[start], nums[i]);
-            }
+    void solve(vector<int>& nums, vector<vector<int>>& ans, int index){
+        //base case
+        if(index >=nums.size()){
+            ans.push_back(nums);
+            return;
+        }
+        for(int i=index; i<nums.size(); i++){
+            swap(nums[index], nums[i]);
+            solve(nums, ans, index+1);
+            //backtrack
+            swap(nums[index], nums[i]);
         }
     }
-    vector<vector<int>> permute(vector<int>& nums) {
-        vector<vector<int>> permutations;
-        perrmutation(nums, permutations, 0);
-        return permutations;
+    vector<vector<int>> permute(vector<int>& nums){
+        vector<vector<int>>ans;
+        int index = 0;
+        solve(nums, ans, index);
+        return ans;
     }
 };
