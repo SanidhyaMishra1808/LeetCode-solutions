@@ -1,13 +1,14 @@
 class Solution {
 public:
     bool rotateString(string s, string goal) {
-     if(s.size()!=goal.size()){
+        for(int i=0;i<=s.size();i++){
+            s.push_back(s[0]);
+            string temp=s.erase(0,1);
+            if(s==goal){
+                return true;
+            }
+        }
         return false;
-     }
-     string ans = s+s;
-     if(ans.find(goal) == string::npos){ 
-        return false;
-     }
-     else return true;   
+        
     }
 };
