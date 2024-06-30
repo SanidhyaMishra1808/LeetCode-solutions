@@ -11,7 +11,6 @@ private:
             tail = newnode;
         }
     }
-
 public:
     Node* copyRandomList(Node* head) {
         // Step 1: Creating a clone list
