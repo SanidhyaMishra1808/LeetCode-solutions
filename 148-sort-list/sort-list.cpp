@@ -1,16 +1,16 @@
 class Solution {
 private:
-ListNode* findmid(ListNode* head){
-    ListNode* slow = head;
-    ListNode* fast = head->next;   // to return first mid in the ll
-    ListNode* temp = NULL;
-    while(fast!= NULL && fast -> next != NULL){
-        slow = slow-> next;
-        fast = fast -> next-> next;
+    ListNode* findmid(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head->next; // to return first mid in the ll
+        ListNode* temp = NULL;
+        while (fast != NULL && fast->next != NULL) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
     }
-    return slow;
-}
- ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         if (list1 == NULL) {
             return list2;
         }
@@ -32,14 +32,15 @@ ListNode* findmid(ListNode* head){
         }
         return head;
     }
+
 public:
     ListNode* sortList(ListNode* head) {
-        if(head==NULL || head->next==NULL){
+        if (head == NULL || head->next == NULL) {
             return head;
         }
         ListNode* mid = findmid(head);
         ListNode* leftHead = head;
-        ListNode* rightHead = mid -> next;
+        ListNode* rightHead = mid->next;
         mid->next = NULL;
         leftHead = sortList(leftHead);
         rightHead = sortList(rightHead);
