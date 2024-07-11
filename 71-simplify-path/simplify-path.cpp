@@ -3,13 +3,13 @@ public:
     string simplifyPath(string path) {
         stack<string> st;
         string res;
-        for (int i = 0; i < path.size(); ++i) {
+        for (int i = 0; i < path.size(); i++) {
             if (path[i] == '/')
                 continue;
             string temp;
             while (i < path.size() && path[i] != '/') {
                 temp += path[i];
-                ++i;
+                i++;
             }
             if (temp == ".")
                 continue;
