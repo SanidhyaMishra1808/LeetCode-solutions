@@ -17,7 +17,7 @@ public:
         prod = 1;
         // right to left loop
         for (int i = nums.size() - 1; i >= 0; i--) {
-            if(prod==1000000000){
+            if(prod==1000000000){   // this was giving a runtme so....
                 break;
             }
             prod *= nums[i];
