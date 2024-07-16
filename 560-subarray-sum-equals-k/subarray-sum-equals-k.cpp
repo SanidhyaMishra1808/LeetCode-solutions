@@ -6,7 +6,9 @@ public:
             int sum = 0;
             for(int j = i; j < nums.size(); j++) {
                 sum += nums[j];
-                if(sum == k) count++;
+                if(sum == k){ 
+                    count++;
+                }
             }
         }
         return count;
