@@ -1,6 +1,6 @@
 class Solution {
 public:
-    vector<int> nextGreaterElements(std::vector<int>& nums) {
+    vector<int> nextGreaterElements(vector<int>& nums) {
         int n = nums.size();
         vector<int> nge(n, -1);
         stack<int> st;
