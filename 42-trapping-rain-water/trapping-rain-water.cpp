@@ -1,20 +1,22 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int ans = 0;
-        stack<int> st;
-        for (int i = 0; i < height.size(); i++) {
-            while (!st.empty() && height[i] > height[st.top()]) {
-                int curr = height[st.top()];
-                st.pop();
-                if (st.empty()) {
-                    break;
-                }
-                int width = i - st.top() - 1;
-                ans += (min(height[st.top()], height[i]) - curr) * width;
+        int i = 0;
+        int left_max = height[0]; 
+        int sum = 0;
+        int j = height.size() - 1; 
+        int right_max = height[j];
+        while (i < j) {
+            if (left_max <= right_max) {
+                sum += (left_max - height[i]);
+                i++;
+                left_max =max(left_max, height[i]);
+            } else {
+                sum += (right_max - height[j]);
+                j--;
+                right_max =max(right_max, height[j]);
             }
-            st.push(i);
         }
-        return ans;
+        return sum;
     }
 };
