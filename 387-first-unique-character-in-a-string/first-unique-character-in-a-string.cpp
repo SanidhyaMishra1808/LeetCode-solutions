@@ -1,7 +1,7 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        int n= s.length();
+        int n = s.length();
         if(n == 1){
             return 0;
         }
