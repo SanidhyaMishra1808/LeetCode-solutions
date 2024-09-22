@@ -17,10 +17,8 @@ public:
         } else {
             int d = abs(LH) + abs(RH);
             result = max(result, d);
-
             return min(LH, RH) - 1;
         }
-
         return 0;
     }
     int amountOfTime(TreeNode* root, int start) {
