@@ -28,7 +28,9 @@ public:
         ListNode* node= x;
         ans->next=node;
         ans=ans->next;
-        if(node->next!=NULL) pq.push({node->next});
+        if(node->next!=NULL) {
+            pq.push({node->next});
+        }
     }
     return dummy->next;
     }
