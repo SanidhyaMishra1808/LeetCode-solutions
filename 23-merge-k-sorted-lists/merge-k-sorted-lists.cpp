@@ -23,9 +23,8 @@ public:
     ListNode* ans = dummy;
 
     while(!pq.empty()){
-        auto x=pq.top();
+        ListNode* node= pq.top();
         pq.pop();
-        ListNode* node= x;
         ans->next=node;
         ans=ans->next;
         if(node->next!=NULL) {
