@@ -28,7 +28,7 @@ public:
         ans->next=node;
         ans=ans->next;
         if(node->next!=NULL) {
-            pq.push({node->next});
+            pq.push(node->next);
         }
     }
     return dummy->next;
