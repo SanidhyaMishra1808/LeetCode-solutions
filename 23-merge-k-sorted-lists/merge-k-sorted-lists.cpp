@@ -19,8 +19,8 @@ public:
         }
     }
 
-    ListNode* dummy=new ListNode;
-    ListNode* ans=dummy;
+    ListNode* dummy = new ListNode;
+    ListNode* ans = dummy;
 
     while(!pq.empty()){
         auto x=pq.top();
