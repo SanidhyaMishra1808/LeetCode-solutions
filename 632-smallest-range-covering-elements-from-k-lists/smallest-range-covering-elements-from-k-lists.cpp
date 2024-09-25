@@ -16,18 +16,18 @@ public:
         while (!pq.empty()) {
             vector<int> top = pq.top();
             int val = top[0];
-            int r = top[1];
-            int c = top[2];
+            int i = top[1];
+            int j = top[2];
             pq.pop();
             if (end - start > maxi - val) {
                 start = val;
                 end = maxi;
             }
-            if (c + 1 < nums[r].size()) {
-                int temp = nums[r][c + 1];
+            if (j + 1 < nums[i].size()) {
+                int temp = nums[i][j + 1];
                 maxi = max(temp, maxi);
 
-                pq.push({nums[r][c + 1], r, c + 1});
+                pq.push({nums[i][j + 1], i, j+ 1});
             } else {
                 break;
             }
