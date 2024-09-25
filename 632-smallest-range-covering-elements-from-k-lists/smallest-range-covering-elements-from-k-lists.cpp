@@ -11,7 +11,6 @@ public:
             maxi = max(maxi, val);
             pq.push({val, i, 0});
         }
-        queue<vector<int>> qu;
         int start = mini;
         int end = maxi;
         while (!pq.empty()) {
