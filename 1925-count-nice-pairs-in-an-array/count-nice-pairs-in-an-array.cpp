@@ -13,13 +13,10 @@ public:
         }
         return reversed;
     }
-
-    // Function to count nice pairs
     int countNicePairs(vector<int>& nums) {
         unordered_map<int, int> mp;
         long long count = 0;
-        int mod = 1e9 + 7; // Modulo value to prevent overflow
-        
+        int mod = 1e9 + 7;
         for (int num : nums) {
             int key = num - rev(num);
             count = (count + mp[key]) % mod;
