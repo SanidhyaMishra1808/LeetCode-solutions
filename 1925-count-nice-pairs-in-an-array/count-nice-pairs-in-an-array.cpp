@@ -1,6 +1,5 @@
 class Solution {
 public:
-    // Function to reverse the digits of a number
     int rev(int n) {
         int reversed = 0;
         while (n > 0) {
@@ -18,7 +17,6 @@ public:
             count = (count + mp[key]) % mod;
             mp[key]++;
         }
-
         return count;
     }
 };
