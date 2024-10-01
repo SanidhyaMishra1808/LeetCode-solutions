@@ -11,7 +11,6 @@ public:
         mp['M'] = 1000;
 
         int ans = 0;
-
         for (int i = 0; i < s.length(); i++) {
             if (mp[s[i]] < mp[s[i + 1]]) { //for negative decline
                 ans -= mp[s[i]];
