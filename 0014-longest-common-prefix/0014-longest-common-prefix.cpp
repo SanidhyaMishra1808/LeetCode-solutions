@@ -19,6 +19,7 @@ public:
 class Trie {
 public:
     TrieNode* root;
+
     // Constructor
     Trie() {
         root = new TrieNode('\0');
@@ -77,6 +78,11 @@ class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
         if (strs.empty()) return "";
+
+        // Check for empty strings
+        for (const string& str : strs) {
+            if (str.empty()) return "";
+        }
 
         Trie* t = new Trie();
         for (int i = 0; i < strs.size(); i++) {
