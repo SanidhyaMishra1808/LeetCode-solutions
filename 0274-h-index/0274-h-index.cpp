@@ -6,7 +6,7 @@ public:
         sort(citations.begin(), citations.end(), greater<int>());   //sort in descendin order by greater<int>()
         for(int i=0; i<n; i++){
             if( i+1 <= citations[i]){
-                h = i+1;       // for every citstion[i] if i+1 is smaller
+                h = i+1;       // for every citstion[i] if i+1 is smaller or equal
             }else{
                 break;
             }
