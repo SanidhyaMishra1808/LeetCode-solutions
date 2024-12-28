@@ -3,8 +3,7 @@ public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
         // greedy with kadense akgorithm
         int n = gas.size();
-        int totalGas = 0;
-        int totalCost = 0;
+        int totalGas = 0, totalCost = 0;
         int start = 0;
         int tank = 0;
         for (int i = 0; i < n; i++) {
