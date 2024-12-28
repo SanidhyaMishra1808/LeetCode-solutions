@@ -1,6 +1,7 @@
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        // greedy with kadense akgorithm
         int n = gas.size();
         int totalGas = 0;
         int totalCost = 0;
