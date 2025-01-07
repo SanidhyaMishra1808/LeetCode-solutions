@@ -1,8 +1,11 @@
-with cte as(Select player_id,min(event_date) as first_date,(select count(DISTINCT player_id)from Activity) as total_count
-from Activity
-group by player_id)
-
-Select round(sum(if(event_date = date_add(first_date, Interval 1 day),1,0))/total_count,2) as fraction
-from Activity a
-join cte c
-on a.player_id = c.player_id
+select
+    round(count(a1.player_id) / (select count(distinct player_id) from Activity), 2)
+    as fraction
+from (
+    select player_id, min(event_date) as first_day
+    from Activity
+    group by 1
+) as a1
+join Activity a2 
+on datediff(a2.event_date, a1.first_day) = 1 
+and a1.player_id = a2.player_id
