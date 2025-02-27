@@ -1,5 +1,6 @@
 class Solution {
 public:
+// cycle sort
     int findDuplicate(vector<int>& nums) {
         sort(nums);
         int i = 0;
