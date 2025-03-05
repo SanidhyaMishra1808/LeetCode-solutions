@@ -1,18 +1,20 @@
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {
-        // sliding window
-        int j = 0;
-        int maxL = 0;
-        unordered_set<char>char_set;
-        for(int i=0; i<s.length(); i++){
-            while(char_set.find(s[i]) != char_set.end()){
-                char_set.erase(s[j]);
-                j++;
+        int n = s.length();
+        int cnt = 0;
+        int element = 0;
+        unordered_set<char> st;
+        for (int i = 0; i < n; i++) {
+            // ab agar yaha se s[i] element st me already he to wo check kart he
+            // (initially empty)
+            while (st.find(s[i]) != st.end()) {
+                st.erase(s[element]);
+                element++;
             }
-            char_set.insert(s[i]);
-            maxL = max(maxL, i-j+1);
+            st.insert(s[i]);
+            cnt = max(cnt, i- element + 1);//{i-element+1} = window size
         }
-        return maxL;
+        return cnt;
     }
 };
