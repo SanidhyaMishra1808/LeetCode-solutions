@@ -3,7 +3,7 @@ public:
     vector<int> findMissingAndRepeatedValues(vector<vector<int>>& grid) {
         int n = grid.size();
         int N = n * n;
-        // create an additional vector to store the frequency of the elements
+        // vector to store the frequency
         vector<int> freq(N + 1, 0);
         // Count frequency
         for (int i = 0; i < n; i++) {
@@ -17,9 +17,6 @@ public:
                 a = i;
             } else if (freq[i] == 0) {
                 b = i;
-            }
-            if (a && b) {
-                break;
             }
         }
         return {a, b};
