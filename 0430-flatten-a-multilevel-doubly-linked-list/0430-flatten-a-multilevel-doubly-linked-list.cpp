@@ -20,7 +20,6 @@ public:
         while (curr) {
             if (curr->child) {
                 if (curr->next) stk.push(curr->next);
-
                 curr->next = curr->child;
                 curr->next->prev = curr;
                 curr->child = NULL; 
