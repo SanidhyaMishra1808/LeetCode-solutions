@@ -12,7 +12,7 @@ public:
             if (count % 2 == 0) {
                 ans += count;
             } else {
-                ans += count - 1;
+                ans += count - 1; // jab ek hi char ka total cnt odd ho jese ccc but lngest pal possible ho
                 odd_found = true;
             }
         }
