@@ -4,11 +4,9 @@ public:
         int n = nums.size();
         vector<int> maxI(n, 0);
         vector<int> maxK(n, 0);
-        maxI[0] = nums[0];
         for (int i = 1; i < n; i++) {
             maxI[i] = max(maxI[i - 1], nums[i - 1]);
         }
-        maxK[n - 1] = nums[n - 1];
         for (int k = n - 2; k >= 0; k--) {
             maxK[k] = max(maxK[k + 1], nums[k + 1]);
         }
