@@ -2,24 +2,17 @@ class Solution {
 public:
     void nextPermutation(vector<int>& nums) {
         int n = nums.size();
-        int firstDecreasingIndex = -1;
-        for (int i = n - 1; i > 0; i--) {
-            if (nums[i] > nums[i - 1]) {
-                firstDecreasingIndex = i - 1;
-                break;
-            }
+        int i = n-2; // to find the first decreasing element 
+        while( i>= 0 && nums[i] >= nums[i+1]){
+            i--;//first decreasing element
         }
-
-        if (firstDecreasingIndex != -1) {
-            int nextLargerIndex = firstDecreasingIndex + 1;
-            for (int i = n - 1; i > firstDecreasingIndex; i--) {
-                if (nums[i] > nums[firstDecreasingIndex]) {
-                    nextLargerIndex = i;
-                    break;
-                }
+        if(i >= 0){
+            int j = n-1;
+            while(nums[j] <= nums[i]){
+                j--;//next larger element
             }
-            swap(nums[firstDecreasingIndex], nums[nextLargerIndex]);
+            swap(nums[i], nums[j]);
         }
-        reverse(nums.begin() + firstDecreasingIndex + 1, nums.end());
+        reverse(nums.begin()+i+1, nums.end());// reverse the right half [ x _ _ ]
     }
 };
