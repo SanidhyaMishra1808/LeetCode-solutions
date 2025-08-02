@@ -7,7 +7,7 @@ public:
 
         while (j < fruits.size()){
             mp[fruits[j]]++;
-            while(mp.size() > 2){
+            if(mp.size() > 2){
                 mp[fruits[i]]--;
                 if(mp[fruits[i]] == 0){
                     mp.erase(fruits[i]);
