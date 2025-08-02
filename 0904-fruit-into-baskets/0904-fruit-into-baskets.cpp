@@ -1,18 +1,24 @@
 class Solution {
 public:
     int totalFruit(vector<int>& fruits) {
-        int maxLength = 0;
-        for(int i=0; i<fruits.size(); i++){
-            unordered_set<int>st;
-            for(int j=i; j<fruits.size(); j++){
-                st.insert(fruits[j]);
-                if(st.size()<= 2){
-                    maxLength = max(maxLength, j-i+1);
-                }else{
-                    break;
+        // understand problem as to find the longest subarray with at most 2 distinct elements
+        int i = 0, j = 0, maxL = 0;
+        unordered_map<int , int>mp;
+
+        while (j < fruits.size()){
+            mp[fruits[j]]++;
+            while(mp.size() > 2){
+                mp[fruits[i]]--;
+                if(mp[fruits[i]] == 0){
+                    mp.erase(fruits[i]);
                 }
+                i++;
             }
+            if(mp.size() <= 2){
+                maxL = max(maxL, j - i + 1);
+            }
+            j++;
         }
-        return maxLength;
+        return maxL;
     }
 };
