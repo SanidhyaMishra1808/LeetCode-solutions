@@ -2,21 +2,16 @@ class Solution {
 public:
     int characterReplacement(string s, int k) {
         int low = 0, ans = 0, maxCount = 0;
-        vector<int>freq(27,0);
+        vector<int>freq(26,0);
 
         for(int high = 0; high < s.length(); high++){
-            freq[s[high] - 'A']++;   // particular character ki freq increase karte hue
+            freq[s[high] - 'A']++;
             maxCount = max(maxCount, freq[s[high] - 'A']);
-            int len = high - low + 1;
-            int diff = len - maxCount;
-            if(diff > k){
+            while((high - low + 1) - maxCount > k){
                 freq[s[low]-'A']--;
-                maxCount = 0;
                 low++;
             }
-            if(diff <= k){
-                ans = max(ans, len);
-            }
+            ans = max(ans, high - low + 1);
         }
         return ans;
     }
